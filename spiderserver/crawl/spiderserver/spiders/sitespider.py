@@ -27,8 +27,7 @@ class SitespiderSpider(scrapy.Spider):
             tag = 'dota2'
         for l in lists:
             l['tag'] = tag
-            print l
-            #yield l
+            yield l
         if len(lists) > 0 and self.page < 900:
             self.page = self.page + 1
             base = 'http://dotamax.com/video/users/'
