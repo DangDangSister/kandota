@@ -2,9 +2,7 @@
 # coding=utf-8
 
 from bs4 import BeautifulSoup
-import time
-import urlparse
-import urllib
+import moment
 
 def parse_html(html):
 	soup = BeautifulSoup(html, 'lxml')
@@ -21,6 +19,21 @@ def parse_html(html):
 			data['title'] = texts[0].text.strip()
 			arr = texts[1].text.strip().split()
 			data['author'] = arr[0]
+			print arr[2], int(arr[1]), moment.now().format('YYYY-M-D hh:mm:ss')
+			if arr[2]:
+				if arr[2].find('hour') >= 0:
+					data['created_at'] = moment.now().subtract(hours=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+				if arr[2].find('minute') >= 0:
+					data['created_at'] = moment.now().subtract(minutes=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+				if arr[2].find('year') >= 0:
+					data['created_at'] = moment.now().subtract(years=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+				if arr[2].find('month') >= 0:
+					data['created_at'] = moment.now().subtract(months=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+				if arr[2].find('day') >= 0:
+					data['created_at'] = moment.now().subtract(days=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+				if arr[2].find('second') >= 0:
+					data['created_at'] = moment.now().subtract(seconds=int(arr[1])).format('YYYY-M-D hh:mm:ss')
+			data['update_at'] = moment.now().format('YYYY-M-D hh:mm:ss')
 			lists.append(data)
 		except:
 			pass
