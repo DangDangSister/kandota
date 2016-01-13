@@ -8,7 +8,31 @@
 import scrapy
 
 
-class SpiderserverItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass 
+class DotamaxItem(scrapy.Item):
+    img = scrapy.Field()
+    created_at = scrapy.Field()
+    updated_at = scrapy.Field()
+    tag = scrapy.Field()
+    channel = scrapy.Field()
+    title = scrapy.Field()
+    video_id = scrapy.Field()
+    id = scrapy.Field()
+
+
+class Carry6Item(scrapy.Item):
+	img = scrapy.Field()
+	created_at = scrapy.Field()
+	href = scrapy.Field()
+	channel = scrapy.Field()
+	title = scrapy.Field()
+	text = scrapy.Field()
+	id = scrapy.Field()
+
+class A178Item(scrapy.Item):
+	img = scrapy.Field()
+	created_at = scrapy.Field()
+	href = scrapy.Field()
+	channel = scrapy.Field()
+	title = scrapy.Field()
+	text = scrapy.Field()
+	id = scrapy.Field() 

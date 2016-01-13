@@ -14,6 +14,13 @@ BOT_NAME = 'spiderserver'
 SPIDER_MODULES = ['spiderserver.spiders']
 NEWSPIDER_MODULE = 'spiderserver.spiders'
 
+ITEM_PIPELINES = {
+    'spiderserver.pipelines.SpiderserverPipeline': 300,
+}
+
+# ES configuration
+ES_HOST = "localhost:9200"
+ES_INDEX = "test"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'spiderserver (+http://www.yourdomain.com)'

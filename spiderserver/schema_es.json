@@ -1,0 +1,111 @@
+{
+   "video": {
+      "_all": {
+         "enabled": false
+      },
+      "properties": {
+         "img": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "tag": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "author": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "channel": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "title": {
+            "type": "string",
+            "searchAnalyzer": "ik",
+            "indexAnalyzer": "ik",
+            "include_in_all": false,
+            "omit_norms": true,
+            "store": "no",
+            "norms": {
+               "enabled": false
+            },
+            "term_vector": "with_positions_offsets"
+         },
+         "video_id": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "id": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "created_at": {
+            "type": "date",
+            "format": "dateOptionalTime"
+         },
+         "updated_at": {
+            "type": "date",
+            "format": "dateOptionalTime"
+         }
+      }
+   }
+}
+
+{
+   "news": {
+      "_all": {
+         "enabled": false
+      },
+      "properties": {
+         "img": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         
+         "href": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "channel": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         
+         "title": {
+            "type": "string",
+            "searchAnalyzer": "ik",
+            "indexAnalyzer": "ik",
+            "include_in_all": false,
+            "omit_norms": true,
+            "store": "no",
+            "norms": {
+               "enabled": false
+            },
+            "term_vector": "with_positions_offsets"
+         },
+         "text": {
+            "type": "string",
+            "searchAnalyzer": "ik",
+            "indexAnalyzer": "ik",
+            "include_in_all": false,
+            "omit_norms": true,
+            "store": "no",
+            "norms": {
+               "enabled": false
+            },
+            "term_vector": "with_positions_offsets"
+         },
+         
+         "id": {
+            "type": "string",
+            "index": "not_analyzed"
+         },
+         "created_at": {
+            "type": "date",
+            "format": "dateOptionalTime"
+         }
+      }
+   }
+}
+
