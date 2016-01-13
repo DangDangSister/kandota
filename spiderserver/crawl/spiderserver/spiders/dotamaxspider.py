@@ -6,8 +6,8 @@ from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 
 
-class SitespiderSpider(scrapy.Spider):
-    name = "sitespider"
+class DotamaxSpider(scrapy.Spider):
+    name = "dotamaxspider"
     allowed_domains = (
         "dotamax.com",
     )
