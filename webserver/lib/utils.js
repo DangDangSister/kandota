@@ -39,27 +39,44 @@ module.exports = {
 			from: page.from*pageSize,
 			size: page.size,
 			query: {
-				term: {
-					tag: tag
+				bool: {
+					must: [{
+						term: {
+							tag: tag
+						}
+					}]
 				}
 			},
 			sort: {
 				created_at: "desc"
 			}
+		};
+		if (params.q) {
+			q.query.bool.must.push({
+				query_string: {
+					fields: ["title"],
+					query: '\"'+params.q+'\"'
+				}
+			});
 		}
 		return q;
 	},
 	helper: function(params, total, action) {
 		var pages = {};
-		if (!params.page) params.page = 0;
+		if (!params.page) params.page = 1;
 		params.page = +params.page;
 		if (params.page > 1) {
 			pages.prev = "/"+action+"?page="+(+params.page-1)
+			if (params.q) {
+				pages.prev = pages.prev + "&q=" + params.q
+			}
 		}
-		if (params.page < Math.ceil(total / pageSize)) {
+		if (params.page < Math.floor(total / pageSize) && total != pageSize) {
 			var np = params.page + 1;
-			console.log('np', np, params.page);
 			pages.next = "/"+action+"?page="+np;
+			if (params.q) {
+				pages.next = pages.next + "&q=" + params.q
+			}
 		}
 		return pages
 	}

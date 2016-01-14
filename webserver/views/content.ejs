@@ -1,4 +1,9 @@
 <div class="content">
+  <% if(hits.length == 0) { %>
+    <div class="row col-xs-12">
+      <p class="img-comment"><strong>没有检索到您想要的结果,建议换成其它的词语</strong>^_^</p>
+    </div>
+  <% } %>
   <% for(var i = 0; i < Math.floor(hits.length / 4); ++i) { %>
       <div class="row">
       <% for(var j = 0; j < 4; ++j) {%>
