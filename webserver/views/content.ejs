@@ -1,0 +1,46 @@
+<div class="content">
+  <% for(var i = 0; i < Math.floor(hits.length / 4); ++i) { %>
+      <div class="row">
+      <% for(var j = 0; j < 4; ++j) {%>
+        <div class="col-xs-3">
+            <div class="tile">
+              <img src="<%= hits[i*4+j].img %>" style="width:200px" alt="Compas" class="tile-image big-illustration">  
+              <p class="text_overflow" title="<%=hits[i*4+j].title %>"><%=hits[i*4+j].title %></p>
+              <p><%=hits[i*4+j].author %></p>
+              <p><%=hits[i*4+j].created_at %></p>
+              <a class="btn btn-primary btn-large btn-block" href="http://dotamax.com/video/youku/?link=<%=hits[i*4+j].video_id%>" target="_blank">观看</a>
+            </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+  <% if(hits.length % 4) { %>
+    <div class="row">
+      <% for(var j = 0; j < hits.length % 4; ++j) {%>
+        <div class="col-xs-3">
+            <div class="tile">
+              <img src="<%= hits[Math.floor(hits.length/4)*4+j].img %>" style="width:200px" alt="Compas" class="tile-image big-illustration">  
+              <p class="text_overflow" title="<%=hits[Math.floor(hits.length/4)*4+j].title %>"><%=hits[Math.floor(hits.length/4)*4+j].title %></p>
+              <p><%=hits[Math.floor(hits.length/4)*4+j].author %></p>
+              <p><%=hits[Math.floor(hits.length/4)*4+j].created_at %></p>
+              <a class="btn btn-primary btn-large btn-block" href="http://dotamax.com/video/youku/?link=<%=hits[Math.floor(hits.length/4)*4+j].video_id%>" target="_blank">观看</a>
+            </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+  <div class="rot pagination pull-right">
+      <ul>
+        <% if(pages.prev) {%>
+        <li class="previous">
+          <a href="<%= pages.prev %>" class="fui-arrow-left"></a>
+        </li>
+        <% } %>
+        <% if(pages.next) {%>
+        <li class="next">
+          <a href="<%= pages.next %>" class="fui-arrow-right"></a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+</div>
