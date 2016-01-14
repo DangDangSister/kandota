@@ -79,9 +79,9 @@ module.exports = {
 		params.page = +params.page;
 		if (params.page > 1) {
 			if (action)
-				pages.prev = "/"+action+"?page="+(+params.page-1)+"&uid="+params.uid
+				pages.prev = "/"+action+"?page="+(+params.page-1)+"&uid="+(params.uid||"")
 			else
-				pages.prev = "/?page="+(+params.page-1)+"&uid="+params.uid
+				pages.prev = "/?page="+(+params.page-1)+"&uid="+(params.uid||"")
 			if (params.q) {
 				pages.prev = pages.prev + "&q=" + params.q
 			}
@@ -89,9 +89,9 @@ module.exports = {
 		if (params.page < Math.floor(total / pageSize) && total != pageSize) {
 			var np = params.page + 1;
 			if (action)
-				pages.next = "/"+action+"?page="+np+"&uid="+params.uid;
+				pages.next = "/"+action+"?page="+np+"&uid="+(params.uid||"");
 			else
-				pages.next = "/?page="+np+"&uid="+params.uid;
+				pages.next = "/?page="+np+"&uid="+(params.uid||"");
 			if (params.q) {
 				pages.next = pages.next + "&q=" + params.q
 			}
