@@ -15,6 +15,6 @@ class SpiderserverPipeline(object):
 
 	def process_item(self, item, spider):
 		type = 'news'
-		if item.has_key('video_id'):
+		if item.has_key('video_id') or item.has_key('uid'):
 			type = 'video'
 		self.es.index(index=settings.ES_INDEX, doc_type=type, id=item['id'], body=item)

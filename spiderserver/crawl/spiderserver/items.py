@@ -35,4 +35,15 @@ class A178Item(scrapy.Item):
 	channel = scrapy.Field()
 	title = scrapy.Field()
 	text = scrapy.Field()
-	id = scrapy.Field() 
+	id = scrapy.Field()
+
+class YoukuItem(scrapy.Item):
+    img = scrapy.Field()
+    created_at = scrapy.Field()
+    channel = scrapy.Field()
+    title = scrapy.Field()
+    id = scrapy.Field()
+    href = scrapy.Field()
+    avtar = scrapy.Field()
+    author = scrapy.Field()
+    uid = scrapy.Field()

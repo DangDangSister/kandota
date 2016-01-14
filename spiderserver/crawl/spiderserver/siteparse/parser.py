@@ -92,3 +92,27 @@ def parse_178_html(html):
 		finally:
 			pass
 	return items
+
+def parse_youku_html(html):
+	soup = BeautifulSoup(html, "lxml")
+	yks = soup.find_all('div', attrs={'class': 'yk-col4'})
+	items = []
+
+	for dl in yks:
+		try:
+			data = {}
+			data['created_at'] = moment.date(dl.attrs['c_time'], 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DDThh:mm:ss')
+			imgtag = dl.find('img')
+			data['img'] = imgtag.attrs['src']
+			data['title'] = imgtag.attrs['title']
+			htag = dl.find('a')
+			data['href'] = htag.attrs['href']
+			data['id'] = md5.new(data['href']).hexdigest()
+			items.append(data)
+		except Exception, e:
+			raise
+		else:
+			pass
+		finally:
+			pass
+	return items
