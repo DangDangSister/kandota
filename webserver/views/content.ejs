@@ -13,7 +13,7 @@
               <p class="text_overflow" title="<%=hits[i*4+j].title %>"><%=hits[i*4+j].title %></p>
               <p><%=hits[i*4+j].author %></p>
               <p><%=hits[i*4+j].created_at %></p>
-              <a class="btn btn-primary btn-large btn-block" href="http://dotamax.com/video/youku/?link=<%=hits[i*4+j].video_id%>" target="_blank">观看</a>
+              <a class="btn btn-primary btn-large btn-block" href="<%=hits[i*4+j].href%>" target="_blank">观看</a>
             </div>
         </div>
       <% } %>
@@ -28,7 +28,7 @@
               <p class="text_overflow" title="<%=hits[Math.floor(hits.length/4)*4+j].title %>"><%=hits[Math.floor(hits.length/4)*4+j].title %></p>
               <p><%=hits[Math.floor(hits.length/4)*4+j].author %></p>
               <p><%=hits[Math.floor(hits.length/4)*4+j].created_at %></p>
-              <a class="btn btn-primary btn-large btn-block" href="http://dotamax.com/video/youku/?link=<%=hits[Math.floor(hits.length/4)*4+j].video_id%>" target="_blank">观看</a>
+              <a class="btn btn-primary btn-large btn-block" href="<%=hits[Math.floor(hits.length/4)*4+j].href%>" target="_blank">观看</a>
             </div>
         </div>
       <% } %>

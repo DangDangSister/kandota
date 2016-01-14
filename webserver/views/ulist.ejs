@@ -1,0 +1,15 @@
+<div class="content">
+  <% for(var i = 0; i < Math.floor(users.length / 4); ++i) { %>
+      <div class="row">
+      <% for(var j = 0; j < 4; ++j) { %>
+        <div class="col-xs-3">
+            <div class="tile">
+              <img src="<%= users[i*4+j].avtar %>" alt="Compas" class="tile-image big-illustration" style="border-radius: 50%;">  
+              <p><%=users[i*4+j].name %></p>
+              <a class="btn btn-primary btn-large btn-block" href="/?uid=<%=users[i*4+j].id %>" target="_blank">查看</a>
+            </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>
