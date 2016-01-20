@@ -3,6 +3,13 @@ var router = express.Router();
 var utils  = require('../lib/utils');
 var users  = require('../lib/users');
 
+router.get('/api/vidoes', function(req, res, next) {
+	var q = utils.common(req.query);
+	utils.search(q, function(err, result) {
+		res.status(200).send(result.hits);
+	})
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var q = utils.common(req.query);
@@ -36,5 +43,6 @@ router.get('/author', function(req, res, next) {
 	params.users = users;
 	res.render("user", params);
 });
+
 
 module.exports = router;
