@@ -25,6 +25,7 @@ var newswatchApp = React.createClass({
                 <TabBarIOS.Item
                     title="视频"
                     selected={this.state.selectedTab==="视频"}
+                    icon={require('image!movie')}
                     onPress={() => {
                             this.setState({
                                 selectedTab: "视频"
@@ -35,6 +36,7 @@ var newswatchApp = React.createClass({
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title="解说"
+                    icon={require('image!person')}
                     selected={this.state.selectedTab==="解说"}
                     onPress={() => {
                             this.setState({
@@ -46,6 +48,7 @@ var newswatchApp = React.createClass({
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title="关于"
+                    icon={require('image!question')}
                     selected={this.state.selectedTab==="关于"}
                     onPress={() => {
                             this.setState({
@@ -62,8 +65,7 @@ var newswatchApp = React.createClass({
 
 var styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'white',
+        flex: 1
     },
 });
 

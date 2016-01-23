@@ -1,8 +1,15 @@
 'use strict';
 
 var moment = require('moment');
-
 var React = require('react-native');
+var MK = require('react-native-material-kit');
+
+var {
+ MKButton,
+  MKColor,
+  MKIconToggle,
+  MKCardStyles
+} = MK;
 
 var {
     Text,
@@ -30,15 +37,15 @@ var Detail = React.createClass({
         var videoId = str.substring(str.indexOf('id_')+3,str.indexOf('.html'))
         var url = 'http://player.youku.com/embed/'+videoId;
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView>
                 <Header
                     navigator={this.props.navigator}
                     initObj={{
                         backName: '视频',
                         title: this.props.video.title
                     }}/>
-                <View>
-                    <Text style={[styles.centerText]}>
+                <View style={MKCardStyles.card}>
+                    <Text style={MKCardStyles.content}>
                     {this.props.video.title} | {this.props.video.author}
                     </Text>
                     <WebView
@@ -58,14 +65,14 @@ var Detail = React.createClass({
     renderLoading: function () {
         return (
             <View style={[styles.container, styles.centerText]}>
-                <Text style={styles.noResultsText}>加载视频...</Text>
+                <Text style={MKCardStyles.content}>加载视频...</Text>
             </View>
         );
     },
     renderError: function () {
         return (
             <View style={[styles.container, styles.centerText]}>
-                <Text style={styles.noResultsText}>视频没有找到 - 404</Text>
+                <Text style={MKCardStyles.content}>视频没有找到 - 404</Text>
             </View>
         );
     }
