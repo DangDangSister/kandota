@@ -10,6 +10,10 @@ router.get('/api/vidoes', function(req, res, next) {
 	})
 });
 
+router.get('/api/authors', function(req, res, next) {
+    res.status(200).send(users);
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var q = utils.common(req.query);
