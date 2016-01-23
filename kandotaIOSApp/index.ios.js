@@ -11,6 +11,8 @@ var {
 } = React;
 
 var Video = require('./Video/List');
+var Author = require('./Author/List');
+var About  = require('./About/Detail');
 var Navigation = require('./Common/Navigation');
 
 var newswatchApp = React.createClass({
@@ -44,7 +46,7 @@ var newswatchApp = React.createClass({
                             })
                         }
                     }>
-                    <View><Text>this is a 解说</Text></View>
+                    <Navigation component={Author}/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title="关于"
@@ -56,7 +58,7 @@ var newswatchApp = React.createClass({
                             })
                         }
                     }>
-                    <View><Text>this is a 关于</Text></View>
+                    <Navigation component={About}/>
                 </TabBarIOS.Item>
             </TabBarIOS>
         );

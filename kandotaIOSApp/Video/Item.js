@@ -31,7 +31,7 @@ var Item = React.createClass({
         var defaultImg = require('image!story-background');
 
         return (
-             <TouchableHighlight onPress={this.props.onSelect}>
+             <TouchableHighlight onPress={this.props.onSelect} style={{marginTop: 5,borderColor:'#ccc'}}>
                 <View>
                   <View style={MKCardStyles.card}>
                     <Image source={thumbnail} style={MKCardStyles.image}/>

@@ -33,5 +33,12 @@ module.exports = {
 			.then((videos) => {
 				return videos;
 			})
+	},
+	fetchAuthors: function() {
+		var uri = "http://kandota.thnuclub.com/api/authors";
+		return safeFetch(uri)
+			.then((authors) => {
+				return authors;
+			})
 	}
 };
