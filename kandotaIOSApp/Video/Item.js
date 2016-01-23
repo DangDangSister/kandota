@@ -9,12 +9,11 @@ var {
     StyleSheet,
     Text,
     TouchableHighlight,
+    ScrollView,
     View
-    } = React;
+} = React;
 
-var getImageSource = require('./getImageSource');
-
-var VideoRow = React.createClass({
+var Item = React.createClass({
     render: function() {
         var pubDate = moment(this.props.video.created_at).fromNow(true);
         var title = this.props.video.title;
@@ -23,7 +22,7 @@ var VideoRow = React.createClass({
         var defaultImg = require('image!story-background');
         return (
             <View>
-                <TouchableHighlight onPress={this.props.onSelect}>
+                <TouchableHighlight onPress={this.props.onSelect} style={styles.item}>
                     <View style={styles.row}>
                         <DelayedImage
                             defaultSource={defaultImg}
@@ -45,22 +44,26 @@ var VideoRow = React.createClass({
 });
 
 var DelayedImage = React.createClass({
-    propTypes: Image.propTypes,
-    getInitialState(): { showImage: boolean } {
-    return { showImage: true };
-},
-componentWillReceiveProps: function(nextProps: any) {
-    if(this.props.source.uri != nextProps.source.uri) {
-        this.setState({ showImage: false });
-        setTimeout(() => this.setState({ showImage: true }), 0);
-    }
-},
-render: function(): React.Component {
-    return <Image {...this.props} source={{uri: this.state.showImage ? this.props.source.uri : null}} />
-},
+        propTypes: Image.propTypes,
+        getInitialState(): { showImage: boolean } {
+        return { showImage: true };
+    },
+    componentWillReceiveProps: function(nextProps: any) {
+        if(this.props.source.uri != nextProps.source.uri) {
+            this.setState({ showImage: false });
+            setTimeout(() => this.setState({ showImage: true }), 0);
+        }
+    },
+    render: function(): React.Component {
+        return <Image {...this.props} source={{uri: this.state.showImage ? this.props.source.uri : null}} />
+    },
 });
 
 var styles = StyleSheet.create({
+    item:{
+        marginTop:5,
+        borderColor:'#ccc'
+    },
     textContainer: {
         flex: 1,
     },
@@ -93,4 +96,4 @@ var styles = StyleSheet.create({
     },
 });
 
-module.exports = VideoRow;
+module.exports = Item;

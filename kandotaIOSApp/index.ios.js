@@ -5,30 +5,57 @@ var {
     AppRegistry,
     NavigatorIOS,
     StyleSheet,
-    } = React;
+    TabBarIOS,
+    Text,
+    View,
+} = React;
 
-var MainScreen = require('./MainScreen');
-var TopicsView = require('./Topics');
+var Video = require('./Video/List');
+var Navigation = require('./Common/Navigation');
 
 var newswatchApp = React.createClass({
+    getInitialState: function() {
+        return {
+            selectedTab: "视频"
+        }
+    },
     render: function() {
         return (
-            <NavigatorIOS
-                ref="nav"
-                style={styles.container}
-                initialRoute={{
-                    title: '视频',
-                    component: MainScreen,
-                    rightButtonTitle: '导航',
-                    onRightButtonPress: () => {
-                        this.refs.nav.navigator.push({
-                            title: "导航",
-                            component: TopicsView,
-                            rightButtonTitle: '取消',
-                            onRightButtonPress: () => {this.refs.nav.navigator.pop();}
-                        });}
-                }}
-            />
+            <TabBarIOS>
+                <TabBarIOS.Item
+                    title="视频"
+                    selected={this.state.selectedTab==="视频"}
+                    onPress={() => {
+                            this.setState({
+                                selectedTab: "视频"
+                            })
+                        }
+                    }>
+                <Navigation component={Video}/>
+                </TabBarIOS.Item>
+                <TabBarIOS.Item
+                    title="解说"
+                    selected={this.state.selectedTab==="解说"}
+                    onPress={() => {
+                            this.setState({
+                                selectedTab: "解说"
+                            })
+                        }
+                    }>
+                    <View><Text>this is a 解说</Text></View>
+                </TabBarIOS.Item>
+                <TabBarIOS.Item
+                    title="关于"
+                    selected={this.state.selectedTab==="关于"}
+                    onPress={() => {
+                            this.setState({
+                                selectedTab: "关于"
+                            })
+                        }
+                    }>
+                    <View><Text>this is a 关于</Text></View>
+                </TabBarIOS.Item>
+            </TabBarIOS>
         );
     }
 });

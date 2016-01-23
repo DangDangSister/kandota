@@ -9,9 +9,12 @@ var {
     StyleSheet,
     View,
     WebView,
-    } = React;
+    ScrollView,
+} = React;
 
-var ViewVideo = React.createClass({
+var Header = require('./../Common/Header');
+
+var Detail = React.createClass({
 
     getInitialState: function() {
         return {
@@ -27,25 +30,32 @@ var ViewVideo = React.createClass({
         var videoId = str.substring(str.indexOf('id_')+3,str.indexOf('.html'))
         var url = 'http://player.youku.com/embed/'+videoId;
         return (
-            <View style={styles.container}>
-                <Text style={[styles.noResultsText, styles.centerText]}>
-                {this.props.video.title} | {this.props.video.author}
-                </Text>
-                <WebView
-                    style={styles.frame}
-                    url={url}
-                    renderLoading={this.renderLoading}
-                    renderError={this.renderError}
-                    automaticallyAdjustContentInsets={false}
-                    startInLoadingState={true}
-                    domStorageEnabled={true}
-                    bounces={true}
-                />
-            </View>
+            <ScrollView style={styles.container}>
+                <Header
+                    navigator={this.props.navigator}
+                    initObj={{
+                        backName: '视频',
+                        title: this.props.video.title
+                    }}/>
+                <View>
+                    <Text style={[styles.centerText]}>
+                    {this.props.video.title} | {this.props.video.author}
+                    </Text>
+                    <WebView
+                        style={styles.frame}
+                        url={url}
+                        renderLoading={this.renderLoading}
+                        renderError={this.renderError}
+                        automaticallyAdjustContentInsets={true}
+                        startInLoadingState={true}
+                        domStorageEnabled={true}
+                        bounces={true}
+                    />
+                </View>
+            </ScrollView>
         );
     },
     renderLoading: function () {
-        console.log('## webView: loading()');
         return (
             <View style={[styles.container, styles.centerText]}>
                 <Text style={styles.noResultsText}>加载视频...</Text>
@@ -68,7 +78,8 @@ var styles = StyleSheet.create({
         flexDirection: 'column'
     },
     centerText: {
-        marginBottom:5,
+        marginBottom: 3,
+        paddingTop: 10,
     },
     noResultsText: {
         marginTop: 70,
@@ -76,8 +87,11 @@ var styles = StyleSheet.create({
         color: '#000000',
     },
     frame: {
-        marginTop: 0
+        padding: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        height:250,
     }
 });
 
-module.exports = ViewVideo;
+module.exports = Detail;

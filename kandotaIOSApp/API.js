@@ -26,7 +26,7 @@ module.exports = {
 	fetchVideos: function(o) {
 		var uri = VIDEO_API;
 		if(o) {
-			uri = VIDEO_API+"?page="+o.page
+			uri = VIDEO_API+"?page="+o.page+"&q="+(o.q||"");
 		}
 		console.log(uri);
 		return safeFetch(uri)
