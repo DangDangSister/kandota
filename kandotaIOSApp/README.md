@@ -10,4 +10,7 @@ Enjoy watching Dota&Dota2 Videos.
 ##### React Native:#####
 ```
 $ npm i -g react-native-cli
+
+$ Read [ReactNativeMaterialKit](https://github.com/xinthink/react-native-material-kit) for install
+
 ```
