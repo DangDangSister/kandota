@@ -27,7 +27,8 @@ module.exports = React.createClass({
     return {
       dataSource: ds.cloneWithRows([]),
       q: '',
-      page: 0
+      page: 0,
+      isLoading: true
     };
   },
   changeText: function(val) {
@@ -127,7 +128,7 @@ module.exports = React.createClass({
 
 var NoVideos = React.createClass({
     render: function() {
-        var text = '没有找到相关的视频';
+        var text = '';
         if(this.props.isLoading){
             text = `正在获取数据...`;
         }
