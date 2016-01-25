@@ -51,7 +51,7 @@ module.exports = React.createClass({
     	<View style={styles.flex_1}>
     	   	<View style={[styles.search, styles.row]}>
 	          <View style={styles.flex_1}>
-	            <Search placeholder="输入检索词语" onChangeText={this.changeText}/>
+	            <Search placeholder="搜索" onChangeText={this.changeText}/>
 	          </View>
 	          <TouchableOpacity style={styles.btn} onPress={this._search}>
 	            <Text style={styles.fontFFF}>Go</Text>
