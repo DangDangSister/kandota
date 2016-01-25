@@ -15,7 +15,7 @@ var Author = require('./Author/List');
 var About  = require('./About/Detail');
 var Navigation = require('./Common/Navigation');
 
-var newswatchApp = React.createClass({
+var KanDotaApp = React.createClass({
     getInitialState: function() {
         return {
             selectedTab: "视频"
@@ -71,6 +71,6 @@ var styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('newswatch', () => newswatchApp);
+AppRegistry.registerComponent('KanDotaApp', () => KanDotaApp);
 
-module.exports = newswatchApp;
+module.exports = KanDotaApp;

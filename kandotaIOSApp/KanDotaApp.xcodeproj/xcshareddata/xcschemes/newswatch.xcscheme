@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "KanDota.app"
-               BlueprintName = "newswatch"
-               ReferencedContainer = "container:newswatch.xcodeproj">
+               BlueprintName = "KanDotaApp"
+               ReferencedContainer = "container:KanDotaApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "KanDota.app"
-            BlueprintName = "newswatch"
-            ReferencedContainer = "container:newswatch.xcodeproj">
+            BlueprintName = "KanDotaApp"
+            ReferencedContainer = "container:KanDotaApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,8 +57,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "KanDota.app"
-            BlueprintName = "newswatch"
-            ReferencedContainer = "container:newswatch.xcodeproj">
+            BlueprintName = "KanDotaApp"
+            ReferencedContainer = "container:KanDotaApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,8 +76,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "KanDota.app"
-            BlueprintName = "newswatch"
-            ReferencedContainer = "container:newswatch.xcodeproj">
+            BlueprintName = "KanDotaApp"
+            ReferencedContainer = "container:KanDotaApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
