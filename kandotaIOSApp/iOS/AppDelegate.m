@@ -36,6 +36,7 @@
   // and uncomment the next following line
   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
+  sleep(3);
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"KanDotaApp"
                                                       initialProperties:nil

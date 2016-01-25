@@ -27,14 +27,17 @@ var Item = React.createClass({
         var pubDate = moment(this.props.video.created_at).fromNow(true);
         var title = this.props.video.title;
         var author = this.props.video.author;
-        var thumbnail = {uri:this.props.video.img};
         var defaultImg = require('image!story-background');
-
+        var thumbnail = {uri:((this.props.video.img || this.props.video.avtar) || "")};
         return (
              <TouchableHighlight onPress={this.props.onSelect} style={{marginTop: 5,borderColor:'#ccc'}}>
                 <View>
                   <View style={MKCardStyles.card}>
-                    <Image source={thumbnail} style={MKCardStyles.image}/>
+                  {
+                    thumbnail.uri.length === 0 ?
+                    <Image source={defaultImg} style={MKCardStyles.image} />
+                    :<Image source={thumbnail} style={MKCardStyles.image}/>
+                   }
                     <Text style={MKCardStyles.title}>{author}</Text>
                     <View
                       style={{
