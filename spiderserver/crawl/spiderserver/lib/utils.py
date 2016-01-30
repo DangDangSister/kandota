@@ -81,6 +81,14 @@ def getYoukuUrls():
 		"name": "NEOTV-DOTA2频道",
 		"id": "UMTM4MjMwNjU1Mg==",
 		"avtar": "http://g4.ykimg.com/0130391F4552D78B772A2E149914BE41FC0699-9EA5-FB24-4001-A6115DF34154"
+	}, {
+		"name": "紫色水离子",
+		"id": "UMTEwNDcxNDAw",
+		"avtar": "http://qzapp.qlogo.cn/qzapp/200004/4C66D3FBC56A3C9CB5B42DA0FE550FC0/100"
+	}, {
+		"name": "DotaA_黑曼巴",
+		"id": "UNTI5MTE2NjQw",
+		"avtar": "http://g3.ykimg.com/0130391F45555C7D824D1607E26B78096239A3-5CD0-A7C1-CCAD-333F3E3D4E0A"
 	}]
 	start_urls = []
 	for o in users:
